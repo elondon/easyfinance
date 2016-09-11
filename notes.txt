@@ -1,0 +1,390 @@
+class Parent(Base):
+    __tablename__ = 'parent'
+    id = Column(Integer, primary_key=True)
+    children = relationship("Child")
+
+class Child(Base):
+    __tablename__ = 'child'
+    id = Column(Integer, primary_key=True)
+    parent_id = Column(Integer, ForeignKey('parent.id'))
+
+
+
+ @property
+    def temperature(self):
+        print("Getting value")
+        return self._temperature
+
+    @temperature.setter
+    def temperature(self, value):
+        if value < -273:
+            raise ValueError("Temperature below -273 is not possible")
+        print("Setting value")
+        self._temperature = value
+
+
+import json
+import logging
+import os
+import requests
+
+from flask_cors import CORS
+from se_utilities import send_email
+from services.mongo_service import *
+from services.encoder_service import encode
+from config_reader import read_config
+from services.rabbitmq_service import send_message_to_user
+from http.client import HTTPException
+from flask import Flask, request, jsonify, make_response
+from werkzeug.exceptions import abort, default_exceptions
+
+
+# todo
+# - catch all uncaught errors.
+# - build a decorator for verify_token @needs_auth.
+# - data validation and error handling.
+# - automated tests.
+
+path = os.path.dirname(os.path.abspath(__file__))
+#load the viewer page template from the file and keep it in memory
+with open(path + '/player.html', 'r') as myfile:
+        player_html = myfile.read()
+
+def make_json_error(ex):
+        response = jsonify(message=str(ex))
+        response.status_code = (ex.code
+                                if isinstance(ex, HTTPException)
+                                else 500)
+        return response
+
+app = Flask(__name__)
+cors = CORS(app, resources={r"/storyexchange/api/*": {"origins": "*"}})
+
+# make all errors return json.
+for code in default_exceptions.keys():
+        app.error_handler_spec[None][code] = make_json_error
+
+# setup and configure app.
+app.debug = False
+read_config(app)
+
+# logging
+logger = logging.getLogger('werkzeug')
+handler = logging.FileHandler(path + '/access.log')
+
+if app.debug is True:
+    app.logger.setLevel(logging.DEBUG)
+    logging.getLogger().setLevel(logging.DEBUG)
+
+    logger.addHandler(handler)
+    app.logger.addHandler(handler)
+else:
+    stream_handler = logging.StreamHandler()
+    stream_handler.setLevel(logging.INFO)
+
+    app.logger.addHandler(stream_handler)
+    app.logger.setLevel(logging.INFO)
+    logging.getLogger().setLevel(logging.INFO)
+
+# auth endpoint
+@app.route('/storyexchange/api/v1/auth/login', methods=['POST'])
+def api_login():
+    username = request.args.get('username')
+    password = request.args.get('password')
+
+    if username is None or password is None:
+        abort(400)  # missing args
+
+    user = get_user_by_username(username)
+    if not user:
+        abort(404)  # user not found
+
+    if not user.verify_password(password):
+        abort(403)  # incorrect pw
+
+    return jsonify(user.get_login_dict())
+
+
+@app.route('/storyexchange/api/v1/auth/register', methods=['POST'])
+def api_register():
+    username = request.args.get('username')
+    password = request.args.get('password')
+    email = request.args.get('email')
+    rabbit_url = request.args.get('rabbitmq_url')
+    rabbit_exchange = request.args.get('rabbitmq_exchange')
+    rabbit_queue = request.args.get('rabbitmq_queue')
+    rabbit_routing_key = request.args.get('rabbitmq_routing_key')
+    rabbit_message_type = request.args.get('rabbitmq_message_type')
+
+    if not username or not password or not email:
+        abort(403)
+
+    user = create_user(username, password, email)
+
+    if rabbit_url:
+        user.rabbitmq_url = rabbit_url
+    if rabbit_exchange:
+        user.rabbitmq_exchange = rabbit_exchange
+    if rabbit_queue:
+        user.rabbitmq_queue = rabbit_queue
+    if rabbit_routing_key:
+        user.rabbitmq_routing_key = rabbit_routing_key
+    if rabbit_message_type:
+        user.rabbitmq_type = rabbit_message_type
+    user.save()
+
+    return jsonify(user.get_dict())
+
+
+@app.route('/storyexchange/api/v1/auth/change_password', methods=['PUT'])
+def api_change_password():
+    token = request.args.get('token')
+    new_password = request.args.get('new_password')
+    if not token:
+        abort(403)
+    user = verify_token(token)
+    if not user:
+        abort (403)
+
+    change_password(user, new_password)
+
+    data = {'Status': 'Success'}
+    return jsonify(data)
+
+
+# user end point
+@app.route('/storyexchange/api/v1/user/user', methods=['PUT'])
+def api_update_user():
+    token = request.args.get('token')
+    if not token:
+        abort(403)
+    user = verify_token(token)
+    if not user:
+        abort (403)
+
+    rabbit_url = request.args.get('rabbitmq_url')
+    rabbit_exchange = request.args.get('rabbitmq_exchange')
+    rabbit_queue = request.args.get('rabbitmq_queue')
+    rabbit_routing_key = request.args.get('rabbitmq_routing_key')
+    rabbit_message_type = request.args.get('rabbitmq_message_type')
+
+    user.rabbitmq_url = rabbit_url
+    user.rabbitmq_exchange = rabbit_exchange
+    user.rabbitmq_queue = rabbit_queue
+    user.rabbitmq_routing_key = rabbit_routing_key
+    user.rabbitmq_type = rabbit_message_type
+
+    user.save()
+    return jsonify(user.get_dict())
+
+
+# movie endpoint
+@app.route('/storyexchange/api/v1/movie/<movie_id>', methods=['GET'])
+def api_get_movie(movie_id):
+    token = request.args.get('token')
+    if not token:
+        abort(403)
+
+
+@app.route('/storyexchange/api/v1/movie', methods=['GET'])
+def api_get_movies():
+    token = request.args.get('token')
+
+    if not token:
+        abort(403)  # no auth token
+
+    user = verify_token(token)
+    if not user:
+        abort(403)  # bad token
+
+    movies = get_movies(user)
+    movie_array = []
+
+    for index in range(len(movies)):
+        movie = movies[index]
+        movie_array.append(movie.get_dict_for_array())
+
+    movie_dict = {
+        'movies': movie_array
+    }
+
+    return jsonify(movie_dict)
+
+
+@app.route('/storyexchange/api/v1/movie', methods=['POST'])
+def api_create_movie():
+    token = request.args.get('token')
+    foreign_id = request.args.get('foreign_id')
+    title = request.args.get('title')
+    tags = request.args.get('tags')
+    verticals = request.args.get('verticals')
+    partners = request.args.get('partners')
+    description = request.args.get('description')
+
+    if not token:
+        abort(403)  # no auth token
+
+    user = verify_token(token)
+    if not user:
+        abort(403)  # bad token
+
+    movie = create_movie(title=title, foreign_id=foreign_id, user=user, tags=tags, description=description, verticals=verticals, partners=partners)
+    return jsonify(movie.get_dict())
+
+
+@app.route('/storyexchange/api/v1/movie/<movie_id>', methods=['PUT'])
+def api_update_movie(movie_id):
+    token = request.args.get('token')
+    foreign_id = request.args.get('foreign_id')
+    title = request.args.get('title')
+    tags = request.args.get('tags')
+    verticals = request.args.get('verticals')
+    partners = request.args.get('partners')
+    description = request.args.get('description')
+
+    if not token:
+        abort(403)  # no auth token
+
+    user = verify_token(token)
+    if not user:
+        abort(403)  # bad token
+
+    movie = get_movie(movie_id)
+    if movie.user.id != user.id:
+        abort(403)  # the movie doesn't belong to them
+
+    updated_movie = update_movie(movie_id=movie_id, title=title, description=description, foreign_id=foreign_id, tags=tags, verticals=verticals, partners=partners)
+    return jsonify(updated_movie.get_dict())
+
+
+@app.route('/storyexchange/api/v1/movie/<movie_id>/uploaded_to_s3', methods=['POST'])
+def api_uploaded_to_s3(movie_id):
+    token = request.args.get('token')
+    notification_to = request.args.get('notification_to')
+
+    if not token:
+        abort(403)  # no auth token
+
+    user = verify_token(token)
+    if not user:
+        abort(403)  # bad token
+
+    movie = get_movie(movie_id)
+    if not movie:
+        abort(404)  # couldn't find movie.
+
+    if notification_to:
+        movie.notification_to = notification_to
+
+    if encode(movie):
+        return jsonify({'Status': 'Success'})
+    else:
+        abort(404)
+
+
+@app.route('/storyexchange/api/v1/movie/<movie_id>/encoding_complete', methods=['POST'])
+def api_encoding_complete(movie_id):
+    movie = get_movie(movie_id)
+    if not movie:
+        abort(404)
+
+    movie.mp4_url = app.config['S3_BUCKET_URL'] + movie.s3_key
+    movie.webm_url = app.config['S3_BUCKET_URL'] + movie.s3_key.replace('mp4', 'webm')
+    movie.wmv_url = app.config['S3_BUCKET_URL'] + movie.s3_key.replace('mp4', 'wmv')
+    movie.thumbnail_url = app.config['S3_BUCKET_URL'] + movie.s3_key.replace('.mp4', '_thumbnail.png')
+
+    movie.is_processing = False
+    movie.status = 'Processing Complete'
+
+    iframe_url = app.config['IFRAME_URL']
+    with open(path + '/video_tag.txt', 'r') as myfile:
+        tag = myfile.read()
+        tag = tag.replace('$iframe_url', iframe_url + '/' + str(movie.id))
+        movie.embed_code = tag
+
+    if movie.notification_to:
+        callback_data = {
+            'movie_id': str(movie.id),
+            'embed': str(movie.embed_code)
+        }
+        requests.post(movie.notification_to, data=json.dumps(callback_data, ensure_ascii=False))
+
+    movie.save()
+
+    rabbit_message = json.dumps(movie.get_rabbit_dict(), ensure_ascii=False)
+
+    if movie.user.rabbitmq_url:
+        send_message_to_user(movie.user.id, rabbit_message)
+
+    data = {'Status': 'Success'}
+    return jsonify(data)
+
+
+@app.route('/storyexchange/api/v1/movie/email_embed_codes', methods=['POST'])
+def api_email_embed_codes():
+    token = request.args.get('token')
+    movie_ids = request.args.get('movie_ids')
+    if not token:
+        abort(403)
+    user = verify_token(token)
+    if not user:
+        abort(403)
+
+    email_body = ''
+
+    #todo validate the comma separated movie id argument.
+    movie_list = movie_ids.split(',')
+    for movie_id in movie_list:
+        movie = get_movie(movie_id)
+        if not movie.user.id == user.id:
+            email_body = email_body + 'You requested movie id ' + movie.id + ' but this movie does not belong to you. You can only request movies that belong to you.\n'
+        else:
+            email_body = email_body + 'Movie ID: ' + str(movie.id) + '\n'
+            email_body = email_body + 'Movie Title: ' + movie.title + '\n'
+            if movie.embed_code:
+                email_body = email_body + 'Movie Embed: \n' + movie.embed_code + '\n\n\n'
+
+    to = user.email
+    subject = 'Story Exchange Embed Codes'
+
+    #todo background workers for stuff like sending e-mail.
+    send_email(to, subject, email_body)
+
+    data = {'Status': 'Success'}
+    return jsonify(data)
+
+
+@app.route('/storyexchange/api/v1/invite', methods=['POST'])
+def api_send_invite():
+    email = request.args.get('email')
+    first_name = request.args.get('first_name')
+    last_name = request.args.get('last_name')
+
+    email_body = 'The following user has requested access to StoryExchange: \n\n' + email +'\n' + first_name + ' ' + last_name
+    send_email('mike@storyexchange.io', 'StoryExchange Access Request', email_body)
+
+    data = {'Status': 'Success'}
+    return jsonify(data)
+
+@app.route('/player/<movie_id>')
+def web_get_player(movie_id):
+    movie = get_movie(movie_id)
+    if not movie or not movie.mp4_url or not movie.thumbnail_url:
+        error = make_response('Sorry! We were unable to find the video you are looking for. Please double check the URL and try again.')
+        error.mimetype = 'text/plain'
+        return error
+
+    movie_html = player_html.replace('$player_path', movie.mp4_url).replace('$poster_path', movie.thumbnail_url)
+    movie_html = movie_html.replace('$lr_video_id', str(movie.id))
+    movie_html = movie_html.replace('$lr_tags', movie.tags)
+    movie_html = movie_html.replace('$lr_verticals', movie.verticals)
+    movie_html = movie_html.replace('$lr_partners', movie.partners)
+
+    resp = make_response(movie_html)
+    resp.mimetype = 'text/html'
+
+    return resp
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', passthrough_errors=True)
