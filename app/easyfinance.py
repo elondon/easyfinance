@@ -20,6 +20,8 @@ def make_json_error(ex):
 
 
 # todo environments, config files, etc...
+# todo security, permissions, etc...
+# todo one to many relationship for user -> entities
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/easyfinance/api/v1/*": {"origins": "*"}})
@@ -48,9 +50,101 @@ else:
     logging.getLogger().setLevel(logging.INFO)
 
 
-@app.route(api_root + '/helloworld', methods=['GET'])
-def hello_world():
-    return "Hello, World!"
+# authentication end points
+@app.route(api_root + '/auth/register', methods=['POST'])
+def auth_register():
+    pass
+
+
+@app.route(api_root + '/auth/login', methods=['POST'])
+def auth_login():
+    pass
+
+
+# entity end points. entity is an aggregate root.
+# entities are business entities or individuals.
+# entities store data that models can run against.
+@app.route(api_root + '/entity/<entity_id>', methods=['GET'])
+def entity_get():
+    pass
+
+
+@app.route(api_root + '/entity', methods=['POST'])
+def entity_create():
+    pass
+
+
+@app.route(api_root + '/entity/<entity_id>', methods=['PUT'])
+def entity_update():
+    pass
+
+
+@app.route(api_root + '/entity/<entity_id>', methods=['DELETE'])
+def entity_delete():
+    pass
+
+
+# revenue end points. handles an entities revenue items.
+@app.route(api_root + '/entity/<entity_id>/revenue/<revenue_id>', methods=['GET'])
+def revenue_get():
+    pass
+
+
+@app.route(api_root + '/entity/<entity_id>/revenue', methods=['POST'])
+def revenue_create():
+    pass
+
+
+@app.route(api_root + '/entity/<entity_id>/revenue/<revenue_id>', methods=['PUT'])
+def revenue_update():
+    pass
+
+
+@app.route(api_root + '/entity/<entity_id>/revenue/<revenue_id>', methods=['DELETE'])
+def revenue_delete():
+    pass
+
+
+# cost end points. handles an entities cost items.
+@app.route(api_root + '/entity/<entity_id>/cost/<cost_id>', methods=['GET'])
+def cost_get():
+    pass
+
+
+@app.route(api_root + '/entity/<entity_id>/cost', methods=['POST'])
+def cost_create():
+    pass
+
+
+@app.route(api_root + '/entity/<entity_id>/cost/<cost_id>', methods=['PUT'])
+def cost_update():
+    pass
+
+
+@app.route(api_root + '/entity/<entity_id>/cost/<cost_id>', methods=['DELETE'])
+def cost_delete():
+    pass
+
+
+# opex end points. handles an entities operating expense items.
+@app.route(api_root + '/entity/<entity_id>/opex/<opex_id>', methods=['GET'])
+def opex_get():
+    pass
+
+
+@app.route(api_root + '/entity/<entity_id>/opex', methods=['POST'])
+def opex_create():
+    pass
+
+
+@app.route(api_root + '/entity/<entity_id>/opex/<opex_id>', methods=['PUT'])
+def opex_update():
+    pass
+
+
+@app.route(api_root + '/entity/<entity_id>/opex/<opex_id>', methods=['DELETE'])
+def opex_delete():
+    pass
 
 
 if __name__ == '__main__':
