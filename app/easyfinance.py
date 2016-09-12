@@ -22,6 +22,7 @@ def make_json_error(ex):
 # todo environments, config files, etc...
 # todo security, permissions, etc...
 # todo one to many relationship for user -> entities
+# todo should probably hash the entity names so people looking at the DB can't tie numbers back to a specific entity. Obfuscation.
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/easyfinance/api/v1/*": {"origins": "*"}})
