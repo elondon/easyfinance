@@ -19,6 +19,7 @@ def make_json_error(ex):
     return response
 
 
+#todo model validation
 # todo environments, config files, etc...
 # todo security, permissions, etc...
 # todo one to many relationship for user -> entities
@@ -66,7 +67,7 @@ def auth_login():
 # entities are business entities or individuals.
 # entities store data that models can run against.
 @app.route(api_root + '/entity/<entity_id>', methods=['GET'])
-def entity_get():
+def entity_get(entity_id):
     pass
 
 
@@ -76,75 +77,75 @@ def entity_create():
 
 
 @app.route(api_root + '/entity/<entity_id>', methods=['PUT'])
-def entity_update():
+def entity_update(entity_id):
     pass
 
 
 @app.route(api_root + '/entity/<entity_id>', methods=['DELETE'])
-def entity_delete():
+def entity_delete(entity_id):
     pass
 
 
 # revenue end points. handles an entities revenue items.
 @app.route(api_root + '/entity/<entity_id>/revenue/<revenue_id>', methods=['GET'])
-def revenue_get():
+def revenue_get(entity_id, revenue_id):
     pass
 
 
 @app.route(api_root + '/entity/<entity_id>/revenue', methods=['POST'])
-def revenue_create():
+def revenue_create(entity_id):
     pass
 
 
 @app.route(api_root + '/entity/<entity_id>/revenue/<revenue_id>', methods=['PUT'])
-def revenue_update():
+def revenue_update(entity_id, revenue_id):
     pass
 
 
 @app.route(api_root + '/entity/<entity_id>/revenue/<revenue_id>', methods=['DELETE'])
-def revenue_delete():
+def revenue_delete(entity_id, revenue_id):
     pass
 
 
 # cost end points. handles an entities cost items.
 @app.route(api_root + '/entity/<entity_id>/cost/<cost_id>', methods=['GET'])
-def cost_get():
+def cost_get(entity_id, cost_id):
     pass
 
 
 @app.route(api_root + '/entity/<entity_id>/cost', methods=['POST'])
-def cost_create():
+def cost_create(entity_id):
     pass
 
 
 @app.route(api_root + '/entity/<entity_id>/cost/<cost_id>', methods=['PUT'])
-def cost_update():
+def cost_update(entity_id, cost_id):
     pass
 
 
 @app.route(api_root + '/entity/<entity_id>/cost/<cost_id>', methods=['DELETE'])
-def cost_delete():
+def cost_delete(entity_id, cost_id):
     pass
 
 
 # opex end points. handles an entities operating expense items.
 @app.route(api_root + '/entity/<entity_id>/opex/<opex_id>', methods=['GET'])
-def opex_get():
+def opex_get(entity_id, opex_id):
     pass
 
 
 @app.route(api_root + '/entity/<entity_id>/opex', methods=['POST'])
-def opex_create():
+def opex_create(entity_id):
     pass
 
 
 @app.route(api_root + '/entity/<entity_id>/opex/<opex_id>', methods=['PUT'])
-def opex_update():
+def opex_update(entity_id, opex_id):
     pass
 
 
 @app.route(api_root + '/entity/<entity_id>/opex/<opex_id>', methods=['DELETE'])
-def opex_delete():
+def opex_delete(entity_id, opex_id):
     pass
 
 

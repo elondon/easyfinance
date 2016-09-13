@@ -18,6 +18,10 @@ class User(db.Model):
     last_name = db.Column(db.String(150))
     username = db.Column(db.String(150))
     password = db.Column(db.String(250))
+    created_at = db.Column(db.DateTime)
+    updated_at = db.Column(db.DateTime)
+
+    entities = relationship("User")
 
     def hash_password(self, password):
         self.password = pwd_context.encrypt(password)
@@ -46,6 +50,8 @@ class Entity(db.Model):
     id = db.Column(db.BigInteger, primary_key=True)
     name = db.Column(db.String(150))
     description = db.Column(db.String(150))
+    created_at = db.Column(db.DateTime)
+    updated_at = db.Column(db.DateTime)
 
     revenue = relationship("Revenue")
     costs = relationship("Cost")
@@ -58,6 +64,8 @@ class Revenue(db.Model):
     name = db.Column(db.BigInteger, nullable=False)
     description = db.Column(db.Unicode)
     value = db.Column(db.Float, nullable=False)
+    created_at = db.Column(db.DateTime)
+    updated_at = db.Column(db.DateTime)
 
 
 class Cost(db.Model):
@@ -66,6 +74,8 @@ class Cost(db.Model):
     name = db.Column(db.BigInteger, nullable=False)
     description = db.Column(db.Unicode)
     value = db.Column(db.Float, nullable=False)
+    created_at = db.Column(db.DateTime)
+    updated_at = db.Column(db.DateTime)
 
 
 class OperatingExpense(db.Model):
@@ -74,3 +84,5 @@ class OperatingExpense(db.Model):
     name = db.Column(db.BigInteger, nullable=False)
     description = db.Column(db.Unicode)
     value = db.Column(db.Float, nullable=False)
+    created_at = db.Column(db.DateTime)
+    updated_at = db.Column(db.DateTime)
