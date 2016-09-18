@@ -88,12 +88,17 @@ def entity_get(entity_id):
 @app.route(api_root + '/<user_id>/entity', methods=['POST'])
 def entity_create(user_id):
     entity_request = EntityRequest(request=request)
+    entity = create_entity(entity_request=entity_request, user_id=user_id)
+    response = EntityResponse(entity=entity)
+    return response.to_json()
 
 
-
-@app.route(api_root + '/<user_id>/entity/<entity_id>', methods=['PUT'])
-def entity_update(user_id, entity_id):
-    pass
+@app.route(api_root + '/entity/<entity_id>', methods=['PUT'])
+def entity_update(entity_id):
+    entity_request = EntityRequest(request=request)
+    entity = update_entity(entity_request=entity_request, entity_id=entity_id)
+    response = EntityResponse(entity=entity)
+    return response.to_json()
 
 
 @app.route(api_root + '/<user_id>/entity/<entity_id>', methods=['DELETE'])
@@ -102,19 +107,28 @@ def entity_delete(user_id, entity_id):
 
 
 # revenue end points. handles an entities revenue items.
-@app.route(api_root + '/entity/<entity_id>/revenue/<revenue_id>', methods=['GET'])
-def revenue_get(entity_id, revenue_id):
-    pass
+@app.route(api_root + '/revenue/<revenue_id>', methods=['GET'])
+def revenue_get(revenue_id):
+    revenue = get_revenue(revenue_id=revenue_id)
+    response = RevenueResponse(revenue)
+    return response.to_json()
 
 
 @app.route(api_root + '/entity/<entity_id>/revenue', methods=['POST'])
 def revenue_create(entity_id):
-    pass
+    revenue_request = RevenueRequest(request=request)
+    revenue = create_revenue(revenue_request=revenue_request, entity_id=entity_id)
+    response = RevenueResponse(revenue)
+    return response.to_json()
 
 
 @app.route(api_root + '/entity/<entity_id>/revenue/<revenue_id>', methods=['PUT'])
-def revenue_update(entity_id, revenue_id):
-    pass
+def revenue_update(revenue_id):
+    revenue_request = RevenueRequest(request=request)
+    revenue = update_revenue(revenue_request=revenue_request, revenue_id=revenue_id)
+    response = RevenueResponse(revenue)
+    return response.to_json()
+
 
 
 @app.route(api_root + '/entity/<entity_id>/revenue/<revenue_id>', methods=['DELETE'])
@@ -123,19 +137,27 @@ def revenue_delete(entity_id, revenue_id):
 
 
 # cost end points. handles an entities cost items.
-@app.route(api_root + '/entity/<entity_id>/cost/<cost_id>', methods=['GET'])
-def cost_get(entity_id, cost_id):
-    pass
+@app.route(api_root + '/cost/<cost_id>', methods=['GET'])
+def cost_get(cost_id):
+    cost = get_cost(cost_id=cost_id)
+    response = CostResponse(cost)
+    return response.to_json()
 
 
 @app.route(api_root + '/entity/<entity_id>/cost', methods=['POST'])
 def cost_create(entity_id):
-    pass
+    cost_request = CostRequest(request=request)
+    cost = create_cost(cost_request=cost_request, entity_id=entity_id)
+    cost_response = CostResponse(cost=cost)
+    return cost_response.to_json()
 
 
-@app.route(api_root + '/entity/<entity_id>/cost/<cost_id>', methods=['PUT'])
-def cost_update(entity_id, cost_id):
-    pass
+@app.route(api_root + '/cost/<cost_id>', methods=['PUT'])
+def cost_update(cost_id):
+    cost_request = CostRequest(request=request)
+    cost = update_cost(cost_request=cost_request, cost_id=cost_id)
+    cost_response = CostResponse(cost=cost)
+    return cost_response.to_json()
 
 
 @app.route(api_root + '/entity/<entity_id>/cost/<cost_id>', methods=['DELETE'])
@@ -144,19 +166,26 @@ def cost_delete(entity_id, cost_id):
 
 
 # opex end points. handles an entities operating expense items.
-@app.route(api_root + '/entity/<entity_id>/opex/<opex_id>', methods=['GET'])
-def opex_get(entity_id, opex_id):
-    pass
-
+@app.route(api_root + '/opex/<opex_id>', methods=['GET'])
+def opex_get(opex_id):
+    opex = get_operatingexpense(operatingexpense_id=opex_id)
+    opex_response = OperatingExpenseResponse(operating_expense=opex)
+    return opex_response.to_json()
 
 @app.route(api_root + '/entity/<entity_id>/opex', methods=['POST'])
 def opex_create(entity_id):
-    pass
+    opex_request = OperatingExpenseRequest(request=request)
+    opex = create_operatingexpense(operatingexpense_request=opex_request, entity_id=entity_id)
+    opex_response = OperatingExpenseResponse(opex)
+    return opex_response.to_json()
 
 
-@app.route(api_root + '/entity/<entity_id>/opex/<opex_id>', methods=['PUT'])
-def opex_update(entity_id, opex_id):
-    pass
+@app.route(api_root + '/opex/<opex_id>', methods=['PUT'])
+def opex_update(opex_id):
+    opex_request = OperatingExpenseRequest(request=request)
+    opex = update_operatingexpense(operatingexpense_request=opex_request, operatingexpense_id=opex_id)
+    opex_response = OperatingExpenseResponse(opex)
+    return opex_response.to_json()
 
 
 @app.route(api_root + '/entity/<entity_id>/opex/<opex_id>', methods=['DELETE'])
