@@ -2,10 +2,16 @@ import json
 import logging
 import os
 
+from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from http.client import HTTPException
 from flask import Flask, request, jsonify, make_response
 from werkzeug.exceptions import abort, default_exceptions
+
+from app.database.database import init_db
+from app.database.repository import *
+from app.requests import RegisterRequest
+from app.responses import RegisterResponse
 
 path = os.path.dirname(os.path.abspath(__file__))
 api_root = '/easyfinance/api/v1'
@@ -18,16 +24,12 @@ def make_json_error(ex):
                             else 500)
     return response
 
-
-#todo model validation
-# todo environments, config files, etc...
-# todo security, permissions, etc...
-# todo one to many relationship for user -> entities
-# todo should probably hash the entity names so people looking at the DB can't tie numbers back to a specific entity. Obfuscation.
-
 app = Flask(__name__)
 cors = CORS(app, resources={r"/easyfinance/api/v1/*": {"origins": "*"}})
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://svceasyfinance:welcome@localhost/easyfinance'
+
+init_db(app)
 
 # make all errors return json.
 for code in default_exceptions.keys():
@@ -54,13 +56,23 @@ else:
 
 # authentication end points
 @app.route(api_root + '/auth/register', methods=['POST'])
-def auth_register():
-    pass
+def route_auth_register():
+    register_request = RegisterRequest(request=request)
+    user = create_user(register_request)
+    response = RegisterResponse(user=user)
+    return jsonify(response)
 
 
 @app.route(api_root + '/auth/login', methods=['POST'])
-def auth_login():
+def route_auth_login():
     pass
+
+
+# user end points.
+@app.route(api_root + '/user/<user_id>', methods=['GET'])
+def route_get_user(user_id):
+    user = get_user(user_id)
+    return jsonify(vars(user))
 
 
 # entity end points. entity is an aggregate root.

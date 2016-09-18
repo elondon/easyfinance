@@ -7,6 +7,15 @@ class RegisterRequest:
         self.password = request.args.get('password')
 
 
+class UserRequest:
+    def __init__(self, request, id):
+        self.username = request.args.get('username')
+        self.first_name = request.args.get('first_name')
+        self.last_name = request.args.get('last_name')
+        self.email = request.args.get('email')
+        self.password = request.args.get('password')
+
+
 class EntityRequest:
     def __init__(self, request):
         self.id = request.args.get('id')
