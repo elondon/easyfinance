@@ -10,8 +10,8 @@ from werkzeug.exceptions import abort, default_exceptions
 
 from app.database.database import init_db
 from app.database.repository import *
-from app.requests import RegisterRequest
-from app.responses import RegisterResponse
+from app.requests import *
+from app.responses import *
 
 path = os.path.dirname(os.path.abspath(__file__))
 api_root = '/easyfinance/api/v1'
@@ -60,7 +60,7 @@ def route_auth_register():
     register_request = RegisterRequest(request=request)
     user = create_user(register_request)
     response = RegisterResponse(user=user)
-    return jsonify(response)
+    return response.to_json()
 
 
 @app.route(api_root + '/auth/login', methods=['POST'])
@@ -72,29 +72,30 @@ def route_auth_login():
 @app.route(api_root + '/user/<user_id>', methods=['GET'])
 def route_get_user(user_id):
     user = get_user(user_id)
-    return jsonify(vars(user))
+    response = RegisterResponse(user=user)
+    return response.to_json()
 
 
-# entity end points. entity is an aggregate root.
 # entities are business entities or individuals.
 # entities store data that models can run against.
-@app.route(api_root + '/entity/<entity_id>', methods=['GET'])
-def entity_get(entity_id):
+@app.route(api_root + '/<user_id>/entity/<entity_id>', methods=['GET'])
+def entity_get(user_id, entity_id):
     pass
 
 
-@app.route(api_root + '/entity', methods=['POST'])
-def entity_create():
+@app.route(api_root + '/<user_id>/entity', methods=['POST'])
+def entity_create(user_id):
+    entity_request = EntityRequest(request=request)
+
+
+
+@app.route(api_root + '/<user_id>/entity/<entity_id>', methods=['PUT'])
+def entity_update(user_id, entity_id):
     pass
 
 
-@app.route(api_root + '/entity/<entity_id>', methods=['PUT'])
-def entity_update(entity_id):
-    pass
-
-
-@app.route(api_root + '/entity/<entity_id>', methods=['DELETE'])
-def entity_delete(entity_id):
+@app.route(api_root + '/<user_id>/entity/<entity_id>', methods=['DELETE'])
+def entity_delete(user_id, entity_id):
     pass
 
 

@@ -1,6 +1,8 @@
+# todo finish login system
 # todo come up with a better way to handle database/sessions. There has to be a better way with SQLAlchemy! database.py is pretty silly.
 # todo model validation
 # todo environments, config files, etc...
 # todo security, permissions, etc...
 # todo one to many relationship for user -> entities
 # todo should probably hash the entity names so people looking at the DB can't tie numbers back to a specific entity. Obfuscation.
+# todo convert timestamps to unix time stamps. donkey for not doing this to begin with.
