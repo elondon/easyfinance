@@ -79,8 +79,10 @@ def route_get_user(user_id):
 # entities are business entities or individuals.
 # entities store data that models can run against.
 @app.route(api_root + '/<user_id>/entity/<entity_id>', methods=['GET'])
-def entity_get(user_id, entity_id):
-    pass
+def entity_get(entity_id):
+    entity = get_entity(entity_id=entity_id)
+    response = EntityResponse(entity=entity)
+    return response.to_json()
 
 
 @app.route(api_root + '/<user_id>/entity', methods=['POST'])
