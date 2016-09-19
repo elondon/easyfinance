@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="914d4377-1944-4e2d-baab-7db11d1d9c2c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ToDo.txt" afterPath="$PROJECT_DIR$/ToDo.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/easyfinance.py" afterPath="$PROJECT_DIR$/app/easyfinance.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tests/tests.py" afterPath="$PROJECT_DIR$/app/tests/tests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/responses.py" afterPath="$PROJECT_DIR$/app/responses.py" />
     </list>
     <ignored path="easyfinance.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,7 +26,7 @@
     <SUITE FILE_PATH="coverage/easyfinance$Unittests_in_UserTest__1_.coverage" NAME="Unittests in UserTest (1) Coverage Results" MODIFIED="1474242621227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
     <SUITE FILE_PATH="coverage/easyfinance$Unittests_in_UserTest__2_.coverage" NAME="Unittests in UserTest (2) Coverage Results" MODIFIED="1474242720131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
     <SUITE FILE_PATH="coverage/easyfinance$Unittest_RegisterTest_test_user_can_register.coverage" NAME="Unittest RegisterTest.test_user_can_register Coverage Results" MODIFIED="1474242547068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
-    <SUITE FILE_PATH="coverage/easyfinance$Unittest_UserTest_test_get_user_with_object_graph.coverage" NAME="Unittest UserTest.test_get_user_with_object_graph Coverage Results" MODIFIED="1474248891307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
+    <SUITE FILE_PATH="coverage/easyfinance$Unittest_UserTest_test_get_user_with_object_graph.coverage" NAME="Unittest UserTest.test_get_user_with_object_graph Coverage Results" MODIFIED="1474250367786" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -76,8 +74,8 @@
           <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/domain/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="396">
-                  <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+                <state relative-caret-position="198">
+                  <caret line="43" column="32" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
                   <folding>
                     <element signature="e#0#12#0" expanded="true" />
                   </folding>
@@ -100,9 +98,11 @@
           <file leaf-file-name="responses.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/responses.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="252">
-                  <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
-                  <folding />
+                <state relative-caret-position="1656">
+                  <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#22#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -218,8 +218,8 @@
           <file leaf-file-name="tests.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/tests/tests.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="522">
-                  <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="58" />
+                <state relative-caret-position="558">
+                  <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
                   </folding>
@@ -338,7 +338,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="eas&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/easyfinance.py&#10;test&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/tests/tests.py&#10;response&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/responses.py&#10;tests&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/tests/tests.py&#10;model&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/domain/models.py&#10;req&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/requests.py&#10;easyf&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/easyfinance.py&#10;inc&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/models/income_statement.py&#10;models&#9;null&#9;null&#10;repos&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/database/repository.py" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/responses.py&#10;mode&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/domain/models.py&#10;eas&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/easyfinance.py&#10;test&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/tests/tests.py&#10;response&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/responses.py&#10;tests&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/tests/tests.py&#10;model&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/domain/models.py&#10;req&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/requests.py&#10;easyf&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/easyfinance.py&#10;inc&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/models/income_statement.py&#10;models&#9;null&#9;null&#10;repos&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/database/repository.py" />
   </component>
   <component name="RunManager" selected="Python tests.Unittest UserTest.test_get_user_with_object_graph">
     <configuration default="false" name="Unittests in UserTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
@@ -698,21 +698,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittest_UserTest_test_get_user_with_object_graph - 2016.09.18 at 20h 46m 53s.xml">
-      <configuration name="Unittest UserTest.test_get_user_with_object_graph" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittest_UserTest_test_get_user_with_object_graph - 2016.09.18 at 20h 50m 22s.xml">
-      <configuration name="Unittest UserTest.test_get_user_with_object_graph" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittest_UserTest_test_get_user_with_object_graph - 2016.09.18 at 20h 51m 38s.xml">
-      <configuration name="Unittest UserTest.test_get_user_with_object_graph" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittest_UserTest_test_get_user_with_object_graph - 2016.09.18 at 21h 05m 38s.xml">
-      <configuration name="Unittest UserTest.test_get_user_with_object_graph" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittest_UserTest_test_get_user_with_object_graph - 2016.09.18 at 21h 06m 48s.xml">
-      <configuration name="Unittest UserTest.test_get_user_with_object_graph" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittest_UserTest_test_get_user_with_object_graph - 2016.09.18 at 21h 17m 21s.xml">
       <configuration name="Unittest UserTest.test_get_user_with_object_graph" configurationId="tests" />
     </history-entry>
@@ -726,6 +711,21 @@
       <configuration name="Unittest UserTest.test_get_user_with_object_graph" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittest_UserTest_test_get_user_with_object_graph - 2016.09.18 at 21h 35m 10s.xml">
+      <configuration name="Unittest UserTest.test_get_user_with_object_graph" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittest_UserTest_test_get_user_with_object_graph - 2016.09.18 at 21h 48m 22s.xml">
+      <configuration name="Unittest UserTest.test_get_user_with_object_graph" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittest_UserTest_test_get_user_with_object_graph - 2016.09.18 at 21h 50m 25s.xml">
+      <configuration name="Unittest UserTest.test_get_user_with_object_graph" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittest_UserTest_test_get_user_with_object_graph - 2016.09.18 at 21h 51m 02s.xml">
+      <configuration name="Unittest UserTest.test_get_user_with_object_graph" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittest_UserTest_test_get_user_with_object_graph - 2016.09.18 at 21h 59m 08s.xml">
+      <configuration name="Unittest UserTest.test_get_user_with_object_graph" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittest_UserTest_test_get_user_with_object_graph - 2016.09.18 at 22h 00m 10s.xml">
       <configuration name="Unittest UserTest.test_get_user_with_object_graph" configurationId="tests" />
     </history-entry>
   </component>
@@ -766,7 +766,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="27" />
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -872,14 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/access.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -911,16 +903,6 @@
         <state relative-caret-position="144">
           <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/domain/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1010,21 +992,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/tests/tests.py">
+    <entry file="file://$PROJECT_DIR$/app/models/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="58" />
+        <state relative-caret-position="252">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/domain/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="43" column="32" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/responses.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
-          <folding />
+        <state relative-caret-position="1656">
+          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/tests/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

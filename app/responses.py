@@ -1,5 +1,41 @@
+from flask import json
 from flask import jsonify
 
+
+def get_revenue_array(revenue_list):
+    revenue_json_array = []
+    for r in revenue_list:
+        revenue_json_array.append({
+            'id': r.id,
+            'name': r.name,
+            'description': r.description,
+            'value': r.value
+        })
+    return revenue_json_array
+
+
+def get_costs_array(cost_list):
+    costs_json_array = []
+    for r in cost_list:
+        costs_json_array.append({
+            'id': r.id,
+            'name': r.name,
+            'description': r.description,
+            'value': r.value
+        })
+    return costs_json_array
+
+
+def get_operating_expenses_array(opex_list):
+    operating_expenses_json_array = []
+    for r in opex_list:
+        operating_expenses_json_array.append({
+            'id': r.id,
+            'name': r.name,
+            'description': r.description,
+            'value': r.value
+        })
+    return operating_expenses_json_array
 
 class RegisterResponse:
     def __init__(self, user):
@@ -34,8 +70,15 @@ class UserResponse:
     def to_json(self):
         entity_array = []
         for e in self.user.entities:
-            er = EntityResponse(e)
-            entity_array.append(er.to_json())
+            entity_dict = {
+                'id': str(e.id),
+                'name': e.name,
+                'description': e.description,
+                'revenue': get_revenue_array(e.revenue),
+                'costs': get_costs_array(e.costs),
+                'operating_expenses': get_operating_expenses_array(e.operating_expenses)
+            }
+            entity_array.append(entity_dict)
 
         response_dict = {
             'user': {
@@ -64,44 +107,11 @@ class EntityResponse:
             'id': str(self.id),
             'name': self.name,
             'description': self.description,
-            'revenue': self.get_revenue_array(),
-            'costs': self.get_costs_array(),
-            'operating_expenses': self.get_operating_expenses_array()
+            'revenue': get_revenue_array(self.revenue),
+            'costs': get_costs_array(self.costs),
+            'operating_expenses': get_operating_expenses_array(self.operating_expenses)
         }
         return jsonify(response_dict)
-
-    def get_revenue_array(self):
-        revenue_array = []
-        for r in self.revenue:
-            revenue_array.append({
-                'id': r.id,
-                'name': r.name,
-                'description': r.description,
-                'value': r.value
-            })
-        return revenue_array
-
-    def get_costs_array(self):
-        costs_array = []
-        for r in self.costs:
-            costs_array.append({
-                'id': r.id,
-                'name': r.name,
-                'description': r.description,
-                'value': r.value
-            })
-        return costs_array
-
-    def get_operating_expenses_array(self):
-        operating_expenses_array = []
-        for r in self.operating_expenses:
-            operating_expenses_array.append({
-                'id': r.id,
-                'name': r.name,
-                'description': r.description,
-                'value': r.value
-            })
-        return operating_expenses_array
 
 
 class RevenueResponse:
