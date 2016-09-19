@@ -72,7 +72,7 @@ def route_auth_login():
 @app.route(api_root + '/user/<user_id>', methods=['GET'])
 def route_get_user(user_id):
     user = get_user(user_id)
-    response = RegisterResponse(user=user)
+    response = UserResponse(user=user)
     return response.to_json()
 
 

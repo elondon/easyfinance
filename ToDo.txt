@@ -1,3 +1,4 @@
+# todo implement blueprints
 # todo finish login system
 # todo come up with a better way to handle database/sessions. There has to be a better way with SQLAlchemy! database.py is pretty silly.
 # todo model validation
