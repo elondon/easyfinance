@@ -2,7 +2,6 @@ import json
 import logging
 import os
 
-from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from http.client import HTTPException
 from flask import Flask, request, jsonify, make_response
@@ -23,6 +22,7 @@ def make_json_error(ex):
                             if isinstance(ex, HTTPException)
                             else 500)
     return response
+
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/easyfinance/api/v1/*": {"origins": "*"}})
@@ -78,7 +78,7 @@ def route_get_user(user_id):
 
 # entities are business entities or individuals.
 # entities store data that models can run against.
-@app.route(api_root + '/<user_id>/entity/<entity_id>', methods=['GET'])
+@app.route(api_root + '/entity/<entity_id>', methods=['GET'])
 def entity_get(entity_id):
     entity = get_entity(entity_id=entity_id)
     response = EntityResponse(entity=entity)
@@ -101,8 +101,8 @@ def entity_update(entity_id):
     return response.to_json()
 
 
-@app.route(api_root + '/<user_id>/entity/<entity_id>', methods=['DELETE'])
-def entity_delete(user_id, entity_id):
+@app.route(api_root + '/entity/<entity_id>', methods=['DELETE'])
+def entity_delete(entity_id):
     pass
 
 
@@ -128,7 +128,6 @@ def revenue_update(revenue_id):
     revenue = update_revenue(revenue_request=revenue_request, revenue_id=revenue_id)
     response = RevenueResponse(revenue)
     return response.to_json()
-
 
 
 @app.route(api_root + '/entity/<entity_id>/revenue/<revenue_id>', methods=['DELETE'])
@@ -171,6 +170,7 @@ def opex_get(opex_id):
     opex = get_operatingexpense(operatingexpense_id=opex_id)
     opex_response = OperatingExpenseResponse(operating_expense=opex)
     return opex_response.to_json()
+
 
 @app.route(api_root + '/entity/<entity_id>/opex', methods=['POST'])
 def opex_create(entity_id):

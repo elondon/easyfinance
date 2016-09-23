@@ -104,12 +104,14 @@ class EntityResponse:
 
     def to_json(self):
         response_dict = {
-            'id': str(self.id),
-            'name': self.name,
-            'description': self.description,
-            'revenue': get_revenue_array(self.revenue),
-            'costs': get_costs_array(self.costs),
-            'operating_expenses': get_operating_expenses_array(self.operating_expenses)
+            'entity': {
+                'id': str(self.id),
+                'name': self.name,
+                'description': self.description,
+                'revenue': get_revenue_array(self.revenue),
+                'costs': get_costs_array(self.costs),
+                'operating_expenses': get_operating_expenses_array(self.operating_expenses)
+            }
         }
         return jsonify(response_dict)
 
@@ -123,10 +125,12 @@ class RevenueResponse:
 
     def to_json(self):
         response_dict = {
-            'id': str(self.id),
-            'name': self.name,
-            'description': self.description,
-            'value': self.value
+            'revenue': {
+                'id': str(self.id),
+                'name': self.name,
+                'description': self.description,
+                'value': self.value
+            }
         }
         return jsonify(response_dict)
 
@@ -140,10 +144,12 @@ class CostResponse:
 
     def to_json(self):
         response_dict = {
-            'id': str(self.id),
-            'name': self.name,
-            'description': self.description,
-            'value': self.value
+            'cost': {
+                'id': str(self.id),
+                'name': self.name,
+                'description': self.description,
+                'value': self.value
+            }
         }
         return jsonify(response_dict)
 
@@ -157,9 +163,11 @@ class OperatingExpenseResponse:
 
     def to_json(self):
         response_dict = {
-            'id': str(self.id),
-            'name': self.name,
-            'description': self.description,
-            'value': self.value
+            'operating_expense': {
+                'id': str(self.id),
+                'name': self.name,
+                'description': self.description,
+                'value': self.value
+            }
         }
         return jsonify(response_dict)
