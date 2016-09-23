@@ -37,6 +37,7 @@ def get_operating_expenses_array(opex_list):
         })
     return operating_expenses_json_array
 
+
 class RegisterResponse:
     def __init__(self, user):
         self.id = user.id

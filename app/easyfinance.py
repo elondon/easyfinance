@@ -65,8 +65,10 @@ def route_auth_register():
 
 @app.route(api_root + '/auth/login', methods=['POST'])
 def route_auth_login():
-    pass
-
+    login_request = LoginRequest(request=request)
+    user = login(login_request)
+    response = UserResponse(user=user)
+    return response.to_json()
 
 # user end points.
 @app.route(api_root + '/user/<user_id>', methods=['GET'])

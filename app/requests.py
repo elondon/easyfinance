@@ -7,6 +7,12 @@ class RegisterRequest:
         self.password = request.args.get('password')
 
 
+class LoginRequest:
+    def __init__(self, request):
+        self.username = request.args.get('username')
+        self.password = request.args.get('password')
+
+
 class UserRequest:
     def __init__(self, request, id):
         self.username = request.args.get('username')

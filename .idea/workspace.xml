@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="914d4377-1944-4e2d-baab-7db11d1d9c2c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ToDo.txt" afterPath="$PROJECT_DIR$/ToDo.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/repository.py" afterPath="$PROJECT_DIR$/app/database/repository.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/easyfinance.py" afterPath="$PROJECT_DIR$/app/easyfinance.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/requests.py" afterPath="$PROJECT_DIR$/app/requests.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/responses.py" afterPath="$PROJECT_DIR$/app/responses.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tests/tests.py" afterPath="$PROJECT_DIR$/app/tests/tests.py" />
     </list>
@@ -25,6 +25,7 @@
     <SUITE FILE_PATH="coverage/easyfinance$Unittests_in_UserTest__1_.coverage" NAME="Unittests in UserTest (1) Coverage Results" MODIFIED="1474242621227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
     <SUITE FILE_PATH="coverage/easyfinance$Unittest_EntityTest_test_create_entity.coverage" NAME="Unittest EntityTest.test_create_entity Coverage Results" MODIFIED="1474588691836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
     <SUITE FILE_PATH="coverage/easyfinance$Unittest_EntityTest_test_should_be_able_to_add_reveue.coverage" NAME="Unittest EntityTest.test_should_be_able_to_add_reveue Coverage Results" MODIFIED="1474592888156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
+    <SUITE FILE_PATH="coverage/easyfinance$Unittest_UserTest_test_should_be_able_to_login.coverage" NAME="Unittest UserTest.test_should_be_able_to_login Coverage Results" MODIFIED="1474595397987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
     <SUITE FILE_PATH="coverage/easyfinance$Unittests_in_UserTest__2_.coverage" NAME="Unittests in UserTest (2) Coverage Results" MODIFIED="1474242720131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
     <SUITE FILE_PATH="coverage/easyfinance$Unittest_UserTest_test_get_user_with_object_graph.coverage" NAME="Unittest UserTest.test_get_user_with_object_graph Coverage Results" MODIFIED="1474585811469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
     <SUITE FILE_PATH="coverage/easyfinance$Unittests_in_UserTest.coverage" NAME="Unittests in UserTest Coverage Results" MODIFIED="1474243171210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
@@ -48,11 +49,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.425">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="easyfinance.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="easyfinance.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/easyfinance.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="18">
-                  <caret line="132" column="45" selection-start-line="132" selection-start-column="45" selection-end-line="132" selection-end-column="45" />
+                <state relative-caret-position="432">
+                  <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
                   </folding>
@@ -73,8 +74,8 @@
           <file leaf-file-name="requests.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/requests.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="126">
-                  <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+                <state relative-caret-position="144">
+                  <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
@@ -104,11 +105,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="responses.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="responses.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/responses.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1209">
-                  <caret line="170" column="13" selection-start-line="170" selection-start-column="13" selection-end-line="170" selection-end-column="13" />
+                <state relative-caret-position="268">
+                  <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#22#0" expanded="true" />
                   </folding>
@@ -215,8 +216,8 @@
           <file leaf-file-name="repository.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/database/repository.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1674">
-                  <caret line="97" column="20" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
+                <state relative-caret-position="-486">
+                  <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
                   <folding>
                     <element signature="e#0#36#0" expanded="true" />
                   </folding>
@@ -227,8 +228,8 @@
           <file leaf-file-name="tests.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/tests/tests.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="198">
-                  <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+                <state relative-caret-position="810">
+                  <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
                   </folding>
@@ -266,16 +267,16 @@
         <option value="$PROJECT_DIR$/app/models/model.py" />
         <option value="$PROJECT_DIR$/alembic/versions/aebd5259866a_add_many_entities_to_users_and_time_.py" />
         <option value="$PROJECT_DIR$/app/database/repositories.py" />
-        <option value="$PROJECT_DIR$/app/requests.py" />
         <option value="$PROJECT_DIR$/app/database/database.py" />
         <option value="$PROJECT_DIR$/alembic/versions/f4e7557866d4_add_email_to_user_table.py" />
         <option value="$PROJECT_DIR$/app/domain/models.py" />
-        <option value="$PROJECT_DIR$/app/database/repository.py" />
         <option value="$PROJECT_DIR$/alembic/versions/5175c305b5e4_add_timestamps_to_cost.py" />
         <option value="$PROJECT_DIR$/ToDo.txt" />
+        <option value="$PROJECT_DIR$/app/requests.py" />
+        <option value="$PROJECT_DIR$/app/tests/tests.py" />
         <option value="$PROJECT_DIR$/app/responses.py" />
         <option value="$PROJECT_DIR$/app/easyfinance.py" />
-        <option value="$PROJECT_DIR$/app/tests/tests.py" />
+        <option value="$PROJECT_DIR$/app/database/repository.py" />
       </list>
     </option>
   </component>
@@ -364,32 +365,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="respo&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/responses.py&#10;resp&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/responses.py&#10;models&#9;null&#9;null&#10;model&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/models/model.py&#10;todo&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/ToDo.txt&#10;mode&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/domain/models.py&#10;eas&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/easyfinance.py&#10;test&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/tests/tests.py&#10;response&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/responses.py&#10;tests&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/tests/tests.py&#10;req&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/requests.py&#10;easyf&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/easyfinance.py&#10;inc&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/models/income_statement.py&#10;repos&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/database/repository.py" />
+    <property name="SearchEverywhereHistoryKey" value="requ&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/requests.py&#10;respo&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/responses.py&#10;resp&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/responses.py&#10;models&#9;null&#9;null&#10;model&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/models/model.py&#10;todo&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/ToDo.txt&#10;mode&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/domain/models.py&#10;eas&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/easyfinance.py&#10;test&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/tests/tests.py&#10;response&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/responses.py&#10;tests&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/tests/tests.py&#10;req&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/requests.py&#10;easyf&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/easyfinance.py&#10;inc&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/models/income_statement.py&#10;repos&#9;FILE&#9;file:///Users/elondon/Documents/easyfinance/app/database/repository.py" />
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in tests">
-    <configuration default="false" name="Unittest EntityTest.test_update_entity" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="easyfinance" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/tests/tests.py" />
-      <option name="CLASS_NAME" value="EntityTest" />
-      <option name="METHOD_NAME" value="test_update_entity" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_METHOD" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Unittest UserTest.test_should_be_able_to_login">
     <configuration default="false" name="Unittest EntityTest.test_should_be_able_to_add_reveue" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -475,6 +453,29 @@
       <option name="METHOD_NAME" value="" />
       <option name="FOLDER_NAME" value="" />
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittest UserTest.test_should_be_able_to_login" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="easyfinance" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/tests/tests.py" />
+      <option name="CLASS_NAME" value="UserTest" />
+      <option name="METHOD_NAME" value="test_should_be_able_to_login" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_METHOD" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <option name="PUREUNITTEST" value="true" />
@@ -691,19 +692,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittest EntityTest.test_update_entity" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest EntityTest.test_should_be_able_to_add_reveue" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest EntityTest.test_should_be_able_to_add_costs" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest EntityTest.test_should_be_able_to_add_opex" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in tests" />
+      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittest EntityTest.test_should_be_able_to_add_reveue" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest EntityTest.test_should_be_able_to_add_costs" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest EntityTest.test_should_be_able_to_add_opex" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in tests" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest UserTest.test_should_be_able_to_login" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in tests" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest EntityTest.test_should_be_able_to_add_opex" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest EntityTest.test_should_be_able_to_add_costs" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest EntityTest.test_should_be_able_to_add_reveue" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest EntityTest.test_update_entity" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittest UserTest.test_should_be_able_to_login" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in tests" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest EntityTest.test_should_be_able_to_add_opex" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest EntityTest.test_should_be_able_to_add_costs" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest EntityTest.test_should_be_able_to_add_reveue" />
       </list>
     </recent_temporary>
   </component>
@@ -724,17 +725,11 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittest_EntityTest_test_create_entity - 2016.09.22 at 19h 58m 12s.xml">
-      <configuration name="Unittest EntityTest.test_create_entity" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittest_EntityTest_test_should_be_able_to_add_costs - 2016.09.22 at 21h 08m 39s.xml">
       <configuration name="Unittest EntityTest.test_should_be_able_to_add_costs" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittest_EntityTest_test_should_be_able_to_add_opex - 2016.09.22 at 21h 11m 18s.xml">
       <configuration name="Unittest EntityTest.test_should_be_able_to_add_opex" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittest_EntityTest_test_should_be_able_to_add_reveue - 2016.09.22 at 20h 58m 00s.xml">
-      <configuration name="Unittest EntityTest.test_should_be_able_to_add_reveue" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittest_EntityTest_test_should_be_able_to_add_reveue - 2016.09.22 at 20h 58m 50s.xml">
       <configuration name="Unittest EntityTest.test_should_be_able_to_add_reveue" configurationId="tests" />
@@ -742,14 +737,20 @@
     <history-entry file="Unittest_EntityTest_test_should_be_able_to_add_reveue - 2016.09.22 at 21h 08m 08s.xml">
       <configuration name="Unittest EntityTest.test_should_be_able_to_add_reveue" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_EntityTest_test_update_entity - 2016.09.22 at 20h 02m 34s.xml">
-      <configuration name="Unittest EntityTest.test_update_entity" configurationId="tests" />
+    <history-entry file="Unittest_UserTest_test_should_be_able_to_login - 2016.09.22 at 21h 46m 34s.xml">
+      <configuration name="Unittest UserTest.test_should_be_able_to_login" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_EntityTest_test_update_entity - 2016.09.22 at 20h 03m 05s.xml">
-      <configuration name="Unittest EntityTest.test_update_entity" configurationId="tests" />
+    <history-entry file="Unittest_UserTest_test_should_be_able_to_login - 2016.09.22 at 21h 46m 57s.xml">
+      <configuration name="Unittest UserTest.test_should_be_able_to_login" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_EntityTest_test_update_entity - 2016.09.22 at 20h 03m 27s.xml">
-      <configuration name="Unittest EntityTest.test_update_entity" configurationId="tests" />
+    <history-entry file="Unittest_UserTest_test_should_be_able_to_login - 2016.09.22 at 21h 47m 41s.xml">
+      <configuration name="Unittest UserTest.test_should_be_able_to_login" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittest_UserTest_test_should_be_able_to_login - 2016.09.22 at 21h 48m 22s.xml">
+      <configuration name="Unittest UserTest.test_should_be_able_to_login" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittest_UserTest_test_should_be_able_to_login - 2016.09.22 at 21h 50m 06s.xml">
+      <configuration name="Unittest UserTest.test_should_be_able_to_login" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_tests - 2016.09.22 at 21h 11m 29s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
@@ -765,11 +766,11 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295626" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.307971" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24547102" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295626" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33605072" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33605072" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -792,7 +793,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="35" />
+      <option name="time" value="36" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1045,16 +1046,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/repository.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1674">
-          <caret line="97" column="20" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/alembic/versions/aebd5259866a_add_many_entities_to_users_and_time_.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1147,14 +1138,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/requests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/database/database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1165,30 +1148,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/responses.py">
+    <entry file="file://$PROJECT_DIR$/app/requests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1209">
-          <caret line="170" column="13" selection-start-line="170" selection-start-column="13" selection-end-line="170" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="144">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/easyfinance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="132" column="45" selection-start-line="132" selection-start-column="45" selection-end-line="132" selection-end-column="45" />
+        <state relative-caret-position="432">
+          <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/responses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/repository.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-486">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/tests/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="810">
+          <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

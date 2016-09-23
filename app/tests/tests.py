@@ -46,6 +46,14 @@ class UserTest(TestCase):
         session.add(self.opex)
         session.commit()
 
+    def test_should_be_able_to_login(self):
+        response = self.tester.post(
+            api_root + '/auth/login?username=testy&password=test',
+        )
+        self.assertEqual(response.status_code, 200)
+        result = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(self.user.id, int(result['user']['id']))
+
     def test_get_user_with_object_graph(self):
         response = self.tester.get(
             api_root + '/user/%d' % self.user.id,

@@ -5,6 +5,12 @@ from app.database.database import session
 from app.domain.models import *
 
 
+# auth
+def login(login_request):
+    user = session.query(User).filter_by(username=login_request.username).first()
+    return user
+
+
 # users
 def create_user(register_request):
     user = User(username=register_request.username, first_name=register_request.first_name,
