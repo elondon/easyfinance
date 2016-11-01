@@ -70,11 +70,19 @@ def route_auth_login():
     response = UserResponse(user=user)
     return response.to_json()
 
+
 # user end points.
 @app.route(api_root + '/user/<user_id>', methods=['GET'])
 def route_get_user(user_id):
     user = get_user(user_id)
     response = UserResponse(user=user)
+    return response.to_json()
+
+
+@app.route(api_root + '/user/<user_id>/entities', methods=['GET'])
+def route_get_user_entities(user_id):
+    user = get_user(user_id)
+    response = UserEntitiesResponse(user=user)
     return response.to_json()
 
 

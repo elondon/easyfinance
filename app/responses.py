@@ -7,9 +7,10 @@ def get_revenue_array(revenue_list):
     for r in revenue_list:
         revenue_json_array.append({
             'id': r.id,
-            'name': r.name,
-            'description': r.description,
-            'value': r.value
+            'unit_name': r.unit_name,
+            'unit_description': r.unit_description,
+            'unit_cost': r.unit_cost,
+            'unit_count': r.unit_count
         })
     return revenue_json_array
 
@@ -90,6 +91,29 @@ class UserResponse:
                 'last_name': self.last_name,
                 'entities': entity_array
             }
+        }
+        return jsonify(response_dict)
+
+
+class UserEntitiesResponse:
+    def __init__(self, user):
+        self.user = user
+
+    def to_json(self):
+        entity_array = []
+        for e in self.user.entities:
+            entity_dict = {
+                'id': str(e.id),
+                'name': e.name,
+                'description': e.description,
+                'revenue': get_revenue_array(e.revenue),
+                'costs': get_costs_array(e.costs),
+                'operating_expenses': get_operating_expenses_array(e.operating_expenses)
+            }
+            entity_array.append(entity_dict)
+
+        response_dict = {
+            'entities': entity_array
         }
         return jsonify(response_dict)
 

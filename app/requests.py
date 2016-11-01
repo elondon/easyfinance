@@ -9,7 +9,7 @@ class RegisterRequest:
 
 class LoginRequest:
     def __init__(self, request):
-        self.username = request.args.get('username')
+        self.email = request.args.get('email')
         self.password = request.args.get('password')
 
 
@@ -31,10 +31,12 @@ class EntityRequest:
 
 class RevenueRequest:
     def __init__(self, request):
-        self.id = request.args.get('id')
-        self.name = request.args.get('name')
-        self.description = request.args.get('description')
-        self.value = request.args.get('value')
+        request_json = request.get_json()
+        self.id = request_json['id']
+        self.unit_name = request_json['unit_name']
+        self.unit_description = request_json['unit_description']
+        self.unit_cost = request_json['unit_cost']
+        self.unit_count = request_json['unit_count']
 
 
 class CostRequest:

@@ -7,7 +7,7 @@ from app.domain.models import *
 
 # auth
 def login(login_request):
-    user = session.query(User).filter_by(username=login_request.username).first()
+    user = session.query(User).filter_by(email=login_request.email).first()
     return user
 
 
@@ -50,8 +50,9 @@ def update_entity(entity_request, entity_id):
 
 # revenue
 def create_revenue(revenue_request, entity_id):
-    revenue = Revenue(name=revenue_request.name, description=revenue_request.description, value=revenue_request.value,
-                      entity_id=entity_id)
+    revenue = Revenue(unit_name=revenue_request.unit_name, unit_description=revenue_request.unit_description,
+                      unit_cost=revenue_request.unit_cost,
+                      unit_count=revenue_request.unit_count, entity_id=entity_id)
     session.add(revenue)
     session.commit()
     return revenue
@@ -64,9 +65,10 @@ def get_revenue(revenue_id):
 
 def update_revenue(revenue_request, revenue_id):
     revenue = session.query(Revenue).get(revenue_id)
-    revenue.name = revenue_request.name
-    revenue.description = revenue_request.description
-    revenue.value = revenue_request.value
+    revenue.unit_name = revenue_request.unit_name
+    revenue.unit_description = revenue_request.unit_description
+    revenue.unit_cost = revenue_request.unit_cost
+    revenue.unit_count = revenue_request.unit_count
     session.commit()
     return revenue
 

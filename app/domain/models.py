@@ -65,9 +65,10 @@ class Entity(db.Model):
 class Revenue(db.Model):
     id = db.Column(db.BigInteger, primary_key=True)
     entity_id = db.Column(db.BigInteger, ForeignKey('entity.id'))
-    name = db.Column(db.BigInteger, nullable=False)
-    description = db.Column(db.Unicode)
-    value = db.Column(db.Float, nullable=False)
+    unit_name = db.Column(db.BigInteger, nullable=False)
+    unit_description = db.Column(db.Unicode)
+    unit_cost = db.Column(db.Float, nullable=False)
+    unit_count = db.Column(db.Float, nullable=False)
     created_at = db.Column(db.DateTime)
     updated_at = db.Column(db.DateTime)
 
