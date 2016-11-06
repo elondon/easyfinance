@@ -7,6 +7,7 @@ def get_revenue_array(revenue_list):
     for r in revenue_list:
         revenue_json_array.append({
             'id': r.id,
+            'entity_id': r.entity_id,
             'unit_name': r.unit_name,
             'unit_description': r.unit_description,
             'unit_cost': r.unit_cost,
@@ -41,20 +42,16 @@ def get_operating_expenses_array(opex_list):
 
 class RegisterResponse:
     def __init__(self, user):
-        self.id = user.id
-        self.username = user.username
-        self.first_name = user.first_name
-        self.last_name = user.last_name
-        self.email = user.email
+        self.user = user
 
     def to_json(self):
         response_dict = {
             'user': {
-                'id': str(self.id),
-                'email': self.email,
-                'username': self.username,
-                'first_name': self.first_name,
-                'last_name': self.last_name
+                'id': str(self.user.id),
+                'email': self.user.email,
+                'username': self.user.username,
+                'first_name': self.user.first_name,
+                'last_name': self.user.last_name
             }
         }
         return jsonify(response_dict)
@@ -63,11 +60,6 @@ class RegisterResponse:
 class UserResponse:
     def __init__(self, user):
         self.user = user
-        self.id = user.id
-        self.username = user.username
-        self.first_name = user.first_name
-        self.last_name = user.last_name
-        self.email = user.email
 
     def to_json(self):
         entity_array = []
@@ -84,11 +76,11 @@ class UserResponse:
 
         response_dict = {
             'user': {
-                'id': str(self.id),
-                'email': self.email,
-                'username': self.username,
-                'first_name': self.first_name,
-                'last_name': self.last_name,
+                'id': str(self.user.id),
+                'email': self.user.email,
+                'username': self.user.username,
+                'first_name': self.user.first_name,
+                'last_name': self.user.last_name,
                 'entities': entity_array
             }
         }
@@ -120,22 +112,17 @@ class UserEntitiesResponse:
 
 class EntityResponse:
     def __init__(self, entity):
-        self.id = entity.id
-        self.name = entity.name
-        self.description = entity.description
-        self.revenue = entity.revenue
-        self.costs = entity.costs
-        self.operating_expenses = entity.operating_expenses
+        self.entity = entity
 
     def to_json(self):
         response_dict = {
             'entity': {
-                'id': str(self.id),
-                'name': self.name,
-                'description': self.description,
-                'revenue': get_revenue_array(self.revenue),
-                'costs': get_costs_array(self.costs),
-                'operating_expenses': get_operating_expenses_array(self.operating_expenses)
+                'id': str(self.entity.id),
+                'name': self.entity.name,
+                'description': self.entity.description,
+                'revenue': get_revenue_array(self.entity.revenue),
+                'costs': get_costs_array(self.entity.costs),
+                'operating_expenses': get_operating_expenses_array(self.entity.operating_expenses)
             }
         }
         return jsonify(response_dict)
@@ -143,18 +130,16 @@ class EntityResponse:
 
 class RevenueResponse:
     def __init__(self, revenue):
-        self.id = revenue.id
-        self.name = revenue.name
-        self.description = revenue.description
-        self.value = revenue.value
+        self.revenue = revenue
 
     def to_json(self):
         response_dict = {
             'revenue': {
-                'id': str(self.id),
-                'name': self.name,
-                'description': self.description,
-                'value': self.value
+                'id': str(self.revenue.id),
+                'entity_id': str(self.revenue.entity_id),
+                'name': self.revenue.name,
+                'description': self.revenue.description,
+                'value': self.revenue.value
             }
         }
         return jsonify(response_dict)
@@ -162,18 +147,15 @@ class RevenueResponse:
 
 class CostResponse:
     def __init__(self, cost):
-        self.id = cost.id
-        self.name = cost.name
-        self.description = cost.description
-        self.value = cost.value
+        self.cost = cost
 
     def to_json(self):
         response_dict = {
             'cost': {
-                'id': str(self.id),
-                'name': self.name,
-                'description': self.description,
-                'value': self.value
+                'id': str(self.cost.id),
+                'name': self.cost.name,
+                'description': self.cost.description,
+                'value': self.cost.value
             }
         }
         return jsonify(response_dict)
@@ -181,18 +163,15 @@ class CostResponse:
 
 class OperatingExpenseResponse:
     def __init__(self, operating_expense):
-        self.id = operating_expense.id
-        self.name = operating_expense.name
-        self.description = operating_expense.description
-        self.value = operating_expense.value
+        self.operating_expense = operating_expense
 
     def to_json(self):
         response_dict = {
             'operating_expense': {
-                'id': str(self.id),
-                'name': self.name,
-                'description': self.description,
-                'value': self.value
+                'id': str(self.operating_expense.id),
+                'name': self.operating_expense.name,
+                'description': self.operating_expense.description,
+                'value': self.operating_expense.value
             }
         }
         return jsonify(response_dict)

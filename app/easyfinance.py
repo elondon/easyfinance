@@ -9,7 +9,8 @@ from werkzeug.exceptions import abort, default_exceptions
 
 from app.database.database import init_db
 from app.database.repository import *
-from app.requests import *
+
+from app.objectview import ObjectView
 from app.responses import *
 
 path = os.path.dirname(os.path.abspath(__file__))
@@ -57,7 +58,8 @@ else:
 # authentication end points
 @app.route(api_root + '/auth/register', methods=['POST'])
 def route_auth_register():
-    register_request = RegisterRequest(request=request)
+    json_request = request.get_json()
+    register_request = ObjectView(json_request)
     user = create_user(register_request)
     response = RegisterResponse(user=user)
     return response.to_json()
@@ -65,7 +67,8 @@ def route_auth_register():
 
 @app.route(api_root + '/auth/login', methods=['POST'])
 def route_auth_login():
-    login_request = LoginRequest(request=request)
+    json_request = request.get_json()
+    login_request = ObjectView(json_request)
     user = login(login_request)
     response = UserResponse(user=user)
     return response.to_json()
@@ -86,8 +89,7 @@ def route_get_user_entities(user_id):
     return response.to_json()
 
 
-# entities are business entities or individuals.
-# entities store data that models can run against.
+# entity endpoints
 @app.route(api_root + '/entity/<entity_id>', methods=['GET'])
 def entity_get(entity_id):
     entity = get_entity(entity_id=entity_id)
@@ -97,7 +99,8 @@ def entity_get(entity_id):
 
 @app.route(api_root + '/<user_id>/entity', methods=['POST'])
 def entity_create(user_id):
-    entity_request = EntityRequest(request=request)
+    json_request = request.get_json()
+    entity_request = ObjectView(json_request)
     entity = create_entity(entity_request=entity_request, user_id=user_id)
     response = EntityResponse(entity=entity)
     return response.to_json()
@@ -105,7 +108,8 @@ def entity_create(user_id):
 
 @app.route(api_root + '/entity/<entity_id>', methods=['PUT'])
 def entity_update(entity_id):
-    entity_request = EntityRequest(request=request)
+    json_request = request.get_json()
+    entity_request = ObjectView(json_request)
     entity = update_entity(entity_request=entity_request, entity_id=entity_id)
     response = EntityResponse(entity=entity)
     return response.to_json()
@@ -126,7 +130,8 @@ def revenue_get(revenue_id):
 
 @app.route(api_root + '/entity/<entity_id>/revenue', methods=['POST'])
 def revenue_create(entity_id):
-    revenue_request = RevenueRequest(request=request)
+    json_request = request.get_json()
+    revenue_request = ObjectView(json_request)
     revenue = create_revenue(revenue_request=revenue_request, entity_id=entity_id)
     response = RevenueResponse(revenue)
     return response.to_json()
@@ -134,7 +139,8 @@ def revenue_create(entity_id):
 
 @app.route(api_root + '/entity/<entity_id>/revenue/<revenue_id>', methods=['PUT'])
 def revenue_update(revenue_id):
-    revenue_request = RevenueRequest(request=request)
+    json_request = request.get_json()
+    revenue_request = ObjectView(json_request)
     revenue = update_revenue(revenue_request=revenue_request, revenue_id=revenue_id)
     response = RevenueResponse(revenue)
     return response.to_json()
@@ -155,7 +161,8 @@ def cost_get(cost_id):
 
 @app.route(api_root + '/entity/<entity_id>/cost', methods=['POST'])
 def cost_create(entity_id):
-    cost_request = CostRequest(request=request)
+    json_request = request.get_json()
+    cost_request = ObjectView(json_request)
     cost = create_cost(cost_request=cost_request, entity_id=entity_id)
     cost_response = CostResponse(cost=cost)
     return cost_response.to_json()
@@ -163,7 +170,8 @@ def cost_create(entity_id):
 
 @app.route(api_root + '/cost/<cost_id>', methods=['PUT'])
 def cost_update(cost_id):
-    cost_request = CostRequest(request=request)
+    json_request = request.get_json()
+    cost_request = ObjectView(json_request)
     cost = update_cost(cost_request=cost_request, cost_id=cost_id)
     cost_response = CostResponse(cost=cost)
     return cost_response.to_json()
@@ -184,7 +192,8 @@ def opex_get(opex_id):
 
 @app.route(api_root + '/entity/<entity_id>/opex', methods=['POST'])
 def opex_create(entity_id):
-    opex_request = OperatingExpenseRequest(request=request)
+    json_request = request.get_json()
+    opex_request = ObjectView(json_request)
     opex = create_operatingexpense(operatingexpense_request=opex_request, entity_id=entity_id)
     opex_response = OperatingExpenseResponse(opex)
     return opex_response.to_json()
@@ -192,7 +201,8 @@ def opex_create(entity_id):
 
 @app.route(api_root + '/opex/<opex_id>', methods=['PUT'])
 def opex_update(opex_id):
-    opex_request = OperatingExpenseRequest(request=request)
+    json_request = request.get_json()
+    opex_request = ObjectView(json_request)
     opex = update_operatingexpense(operatingexpense_request=opex_request, operatingexpense_id=opex_id)
     opex_response = OperatingExpenseResponse(opex)
     return opex_response.to_json()
