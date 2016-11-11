@@ -7,11 +7,11 @@ def get_revenue_array(revenue_list):
     for r in revenue_list:
         revenue_json_array.append({
             'id': r.id,
-            'entity_id': r.entity_id,
-            'unit_name': r.unit_name,
-            'unit_description': r.unit_description,
-            'unit_cost': r.unit_cost,
-            'unit_count': r.unit_count
+            'entityId': r.entity_id,
+            'unitName': r.unit_name,
+            'unitDescription': r.unit_description,
+            'unitCost': r.unit_cost,
+            'unitCount': r.unit_count
         })
     return revenue_json_array
 
@@ -50,8 +50,8 @@ class RegisterResponse:
                 'id': str(self.user.id),
                 'email': self.user.email,
                 'username': self.user.username,
-                'first_name': self.user.first_name,
-                'last_name': self.user.last_name
+                'firstName': self.user.first_name,
+                'lastName': self.user.last_name
             }
         }
         return jsonify(response_dict)
@@ -70,7 +70,7 @@ class UserResponse:
                 'description': e.description,
                 'revenue': get_revenue_array(e.revenue),
                 'costs': get_costs_array(e.costs),
-                'operating_expenses': get_operating_expenses_array(e.operating_expenses)
+                'operatingExpenses': get_operating_expenses_array(e.operating_expenses)
             }
             entity_array.append(entity_dict)
 
@@ -79,8 +79,8 @@ class UserResponse:
                 'id': str(self.user.id),
                 'email': self.user.email,
                 'username': self.user.username,
-                'first_name': self.user.first_name,
-                'last_name': self.user.last_name,
+                'firstName': self.user.first_name,
+                'lastName': self.user.last_name,
                 'entities': entity_array
             }
         }
@@ -100,7 +100,7 @@ class UserEntitiesResponse:
                 'description': e.description,
                 'revenue': get_revenue_array(e.revenue),
                 'costs': get_costs_array(e.costs),
-                'operating_expenses': get_operating_expenses_array(e.operating_expenses)
+                'operatingExpenses': get_operating_expenses_array(e.operating_expenses)
             }
             entity_array.append(entity_dict)
 
@@ -122,7 +122,7 @@ class EntityResponse:
                 'description': self.entity.description,
                 'revenue': get_revenue_array(self.entity.revenue),
                 'costs': get_costs_array(self.entity.costs),
-                'operating_expenses': get_operating_expenses_array(self.entity.operating_expenses)
+                'operatingExpenses': get_operating_expenses_array(self.entity.operating_expenses)
             }
         }
         return jsonify(response_dict)
@@ -136,10 +136,11 @@ class RevenueResponse:
         response_dict = {
             'revenue': {
                 'id': str(self.revenue.id),
-                'entity_id': str(self.revenue.entity_id),
-                'name': self.revenue.name,
-                'description': self.revenue.description,
-                'value': self.revenue.value
+                'entityId': str(self.revenue.entity_id),
+                'unitName': self.revenue.unit_name,
+                'unitDescription': self.revenue.unit_description,
+                'unitCost': self.revenue.unit_cost,
+                'unitCount': self.revenue.unit_count
             }
         }
         return jsonify(response_dict)
@@ -167,7 +168,7 @@ class OperatingExpenseResponse:
 
     def to_json(self):
         response_dict = {
-            'operating_expense': {
+            'operatingExpense': {
                 'id': str(self.operating_expense.id),
                 'name': self.operating_expense.name,
                 'description': self.operating_expense.description,

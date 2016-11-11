@@ -2,6 +2,7 @@ import json
 import logging
 import os
 
+from flask import Response
 from flask_cors import CORS
 from http.client import HTTPException
 from flask import Flask, request, jsonify, make_response
@@ -148,7 +149,9 @@ def revenue_update(revenue_id):
 
 @app.route(api_root + '/entity/<entity_id>/revenue/<revenue_id>', methods=['DELETE'])
 def revenue_delete(entity_id, revenue_id):
-    pass
+    delete_revenue(revenue_id)
+    response = Response(status=200, mimetype='application/json')
+    return response
 
 
 # cost end points. handles an entities cost items.
