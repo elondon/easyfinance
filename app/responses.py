@@ -1,6 +1,8 @@
 from flask import json
 from flask import jsonify
 
+from app.models.income_statement import IncomeStatement
+
 
 def get_revenue_array(revenue_list):
     revenue_json_array = []
@@ -146,6 +148,20 @@ class RevenueResponse:
         return jsonify(response_dict)
 
 
+class RevenueDeletedResponse:
+    def __init__(self, revenue_id, entity_id):
+        self.revenue_id = revenue_id
+        self.entity_id = entity_id
+
+    def to_json(self):
+        response_dict = {
+            'status': 'DELETED',
+            'entityId': self.entity_id,
+            'revenueId': self.revenue_id
+        }
+        return jsonify(response_dict)
+
+
 class CostResponse:
     def __init__(self, cost):
         self.cost = cost
@@ -173,6 +189,28 @@ class OperatingExpenseResponse:
                 'name': self.operating_expense.name,
                 'description': self.operating_expense.description,
                 'value': self.operating_expense.value
+            }
+        }
+        return jsonify(response_dict)
+
+
+class IncomeStatementResponse:
+    def __init__(self, entity):
+        self.entity = entity
+
+    def calculate_and_respond(self):
+        income_statement = IncomeStatement(self.entity)
+        response_dict = {
+            'incomeStatement': {
+                'entityId': self.entity.id,
+                'totalCosts': income_statement.total_costs,
+                'totalCostItems': len(self.entity.costs),
+                'totalRevenue': income_statement.total_revenue,
+                'totalRevenueItems': len(self.entity.revenue),
+                'totalOpex': income_statement.total_opex,
+                'totalOpexItems': len(self.entity.operating_expenses),
+                'grossProfit': income_statement.gross_profit,
+                'ebitda': income_statement.ebitda
             }
         }
         return jsonify(response_dict)

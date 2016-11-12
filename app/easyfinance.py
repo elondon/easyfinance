@@ -121,6 +121,14 @@ def entity_delete(entity_id):
     pass
 
 
+# financial model end points
+@app.route(api_root + '/entity/<entity_id>/incomestatement', methods=['GET'])
+def income_statement(entity_id):
+    entity = get_entity(entity_id=entity_id)
+    response = IncomeStatementResponse(entity=entity)
+    return response.calculate_and_respond()
+
+
 # revenue end points. handles an entities revenue items.
 @app.route(api_root + '/revenue/<revenue_id>', methods=['GET'])
 def revenue_get(revenue_id):
@@ -150,8 +158,8 @@ def revenue_update(revenue_id):
 @app.route(api_root + '/entity/<entity_id>/revenue/<revenue_id>', methods=['DELETE'])
 def revenue_delete(entity_id, revenue_id):
     delete_revenue(revenue_id)
-    response = Response(status=200, mimetype='application/json')
-    return response
+    response = RevenueDeletedResponse(revenue_id, entity_id)
+    return response.to_json()
 
 
 # cost end points. handles an entities cost items.
