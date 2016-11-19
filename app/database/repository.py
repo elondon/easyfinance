@@ -101,6 +101,11 @@ def update_cost(cost_request, cost_id):
     return cost
 
 
+def delete_cost(cost_id):
+    session.query(Cost).filter_by(id=cost_id).delete()
+    session.commit()
+
+
 # operatingexpense
 def create_operatingexpense(operatingexpense_request, entity_id):
     operatingexpense = OperatingExpense(name=operatingexpense_request.name,

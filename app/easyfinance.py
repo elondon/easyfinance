@@ -147,7 +147,7 @@ def revenue_create(entity_id):
 
 
 @app.route(api_root + '/entity/<entity_id>/revenue/<revenue_id>', methods=['PUT'])
-def revenue_update(revenue_id):
+def revenue_update(entity_id, revenue_id):
     json_request = request.get_json()
     revenue_request = ObjectView(json_request)
     revenue = update_revenue(revenue_request=revenue_request, revenue_id=revenue_id)
@@ -157,8 +157,8 @@ def revenue_update(revenue_id):
 
 @app.route(api_root + '/entity/<entity_id>/revenue/<revenue_id>', methods=['DELETE'])
 def revenue_delete(entity_id, revenue_id):
-    delete_revenue(revenue_id)
-    response = RevenueDeletedResponse(revenue_id, entity_id)
+    delete_revenue(int(revenue_id))
+    response = RevenueDeletedResponse(int(revenue_id), int(entity_id))
     return response.to_json()
 
 
@@ -179,8 +179,8 @@ def cost_create(entity_id):
     return cost_response.to_json()
 
 
-@app.route(api_root + '/cost/<cost_id>', methods=['PUT'])
-def cost_update(cost_id):
+@app.route(api_root + '/entity/<entity_id>/cost/<cost_id>', methods=['PUT'])
+def cost_update(entity_id, cost_id):
     json_request = request.get_json()
     cost_request = ObjectView(json_request)
     cost = update_cost(cost_request=cost_request, cost_id=cost_id)
@@ -190,7 +190,9 @@ def cost_update(cost_id):
 
 @app.route(api_root + '/entity/<entity_id>/cost/<cost_id>', methods=['DELETE'])
 def cost_delete(entity_id, cost_id):
-    pass
+    delete_cost(int(cost_id))
+    response = CostDeletedResponse(int(cost_id), int(entity_id))
+    return response.to_json()
 
 
 # opex end points. handles an entities operating expense items.

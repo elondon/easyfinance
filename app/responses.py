@@ -22,6 +22,7 @@ def get_costs_array(cost_list):
     costs_json_array = []
     for r in cost_list:
         costs_json_array.append({
+            'entityId': r.entity_id,
             'id': r.id,
             'name': r.name,
             'description': r.description,
@@ -34,6 +35,7 @@ def get_operating_expenses_array(opex_list):
     operating_expenses_json_array = []
     for r in opex_list:
         operating_expenses_json_array.append({
+            'entityId': r.entity_id,
             'id': r.id,
             'name': r.name,
             'description': r.description,
@@ -49,7 +51,7 @@ class RegisterResponse:
     def to_json(self):
         response_dict = {
             'user': {
-                'id': str(self.user.id),
+                'id': self.user.id,
                 'email': self.user.email,
                 'username': self.user.username,
                 'firstName': self.user.first_name,
@@ -67,7 +69,7 @@ class UserResponse:
         entity_array = []
         for e in self.user.entities:
             entity_dict = {
-                'id': str(e.id),
+                'id': e.id,
                 'name': e.name,
                 'description': e.description,
                 'revenue': get_revenue_array(e.revenue),
@@ -78,7 +80,7 @@ class UserResponse:
 
         response_dict = {
             'user': {
-                'id': str(self.user.id),
+                'id': self.user.id,
                 'email': self.user.email,
                 'username': self.user.username,
                 'firstName': self.user.first_name,
@@ -97,7 +99,7 @@ class UserEntitiesResponse:
         entity_array = []
         for e in self.user.entities:
             entity_dict = {
-                'id': str(e.id),
+                'id': e.id,
                 'name': e.name,
                 'description': e.description,
                 'revenue': get_revenue_array(e.revenue),
@@ -119,7 +121,7 @@ class EntityResponse:
     def to_json(self):
         response_dict = {
             'entity': {
-                'id': str(self.entity.id),
+                'id': self.entity.id,
                 'name': self.entity.name,
                 'description': self.entity.description,
                 'revenue': get_revenue_array(self.entity.revenue),
@@ -137,8 +139,8 @@ class RevenueResponse:
     def to_json(self):
         response_dict = {
             'revenue': {
-                'id': str(self.revenue.id),
-                'entityId': str(self.revenue.entity_id),
+                'id': self.revenue.id,
+                'entityId': self.revenue.entity_id,
                 'unitName': self.revenue.unit_name,
                 'unitDescription': self.revenue.unit_description,
                 'unitCost': self.revenue.unit_cost,
@@ -162,6 +164,20 @@ class RevenueDeletedResponse:
         return jsonify(response_dict)
 
 
+class CostDeletedResponse:
+    def __init__(self, cost_id, entity_id):
+        self.cost_id = cost_id
+        self.entity_id = entity_id
+
+    def to_json(self):
+        response_dict = {
+            'status': 'DELETED',
+            'entityId': self.entity_id,
+            'costId': self.cost_id
+        }
+        return jsonify(response_dict)
+
+
 class CostResponse:
     def __init__(self, cost):
         self.cost = cost
@@ -169,7 +185,8 @@ class CostResponse:
     def to_json(self):
         response_dict = {
             'cost': {
-                'id': str(self.cost.id),
+                'entityId': self.cost.entity_id,
+                'id': self.cost.id,
                 'name': self.cost.name,
                 'description': self.cost.description,
                 'value': self.cost.value
@@ -185,7 +202,8 @@ class OperatingExpenseResponse:
     def to_json(self):
         response_dict = {
             'operatingExpense': {
-                'id': str(self.operating_expense.id),
+                'entityId': self.operating_expense.entity_id,
+                'id': self.operating_expense.id,
                 'name': self.operating_expense.name,
                 'description': self.operating_expense.description,
                 'value': self.operating_expense.value
