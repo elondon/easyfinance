@@ -212,6 +212,20 @@ class OperatingExpenseResponse:
         return jsonify(response_dict)
 
 
+class OpexDeletedResponse:
+    def __init__(self, opex_id, entity_id):
+        self.opex_id = opex_id
+        self.entity_id = entity_id
+
+    def to_json(self):
+        response_dict = {
+            'status': 'DELETED',
+            'entityId': self.entity_id,
+            'opexId': self.opex_id
+        }
+        return jsonify(response_dict)
+
+
 class IncomeStatementResponse:
     def __init__(self, entity):
         self.entity = entity

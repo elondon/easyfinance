@@ -129,3 +129,8 @@ def update_operatingexpense(operatingexpense_request, operatingexpense_id):
     operatingexpense.value = operatingexpense_request.value
     session.commit()
     return operatingexpense
+
+
+def delete_opex(opex_id):
+    session.query(OperatingExpense).filter_by(id=opex_id).delete()
+    session.commit()

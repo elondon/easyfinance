@@ -223,7 +223,9 @@ def opex_update(opex_id):
 
 @app.route(api_root + '/entity/<entity_id>/opex/<opex_id>', methods=['DELETE'])
 def opex_delete(entity_id, opex_id):
-    pass
+    delete_opex(int(opex_id))
+    response = OpexDeletedResponse(int(opex_id), int(entity_id))
+    return response.to_json()
 
 
 if __name__ == '__main__':
