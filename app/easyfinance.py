@@ -212,8 +212,8 @@ def opex_create(entity_id):
     return opex_response.to_json()
 
 
-@app.route(api_root + '/opex/<opex_id>', methods=['PUT'])
-def opex_update(opex_id):
+@app.route(api_root + '/entity/<entity_id>/opex/<opex_id>', methods=['PUT'])
+def opex_update(entity_id, opex_id):
     json_request = request.get_json()
     opex_request = ObjectView(json_request)
     opex = update_operatingexpense(operatingexpense_request=opex_request, operatingexpense_id=opex_id)

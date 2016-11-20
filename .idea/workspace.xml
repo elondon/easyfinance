@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="914d4377-1944-4e2d-baab-7db11d1d9c2c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/repository.py" afterPath="$PROJECT_DIR$/app/database/repository.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/easyfinance.py" afterPath="$PROJECT_DIR$/app/easyfinance.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/responses.py" afterPath="$PROJECT_DIR$/app/responses.py" />
     </list>
@@ -31,7 +31,7 @@
     <SUITE FILE_PATH="coverage/easyfinance$Unittest_EntityTest_test_should_be_able_to_add_costs.coverage" NAME="Unittest EntityTest.test_should_be_able_to_add_costs Coverage Results" MODIFIED="1474592919271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
     <SUITE FILE_PATH="coverage/easyfinance$Unittest_EntityTest_test_get_entity.coverage" NAME="Unittest EntityTest.test_get_entity Coverage Results" MODIFIED="1474588329466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
     <SUITE FILE_PATH="coverage/easyfinance$Unittest_UserTest_test_user_can_register.coverage" NAME="Unittest UserTest.test_user_can_register Coverage Results" MODIFIED="1474227666006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
-    <SUITE FILE_PATH="coverage/easyfinance$easyfinance.coverage" NAME="easyfinance Coverage Results" MODIFIED="1479589888461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/easyfinance$easyfinance.coverage" NAME="easyfinance Coverage Results" MODIFIED="1479655751483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/easyfinance$Unittests_in_tests.coverage" NAME="Unittests in tests Coverage Results" MODIFIED="1475935323067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
     <SUITE FILE_PATH="coverage/easyfinance$Unittest_EntityTest_test_should_be_able_to_add_opex.coverage" NAME="Unittest EntityTest.test_should_be_able_to_add_opex Coverage Results" MODIFIED="1474593077669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
     <SUITE FILE_PATH="coverage/easyfinance$Unittest_RegisterTest_test_user_can_register.coverage" NAME="Unittest RegisterTest.test_user_can_register Coverage Results" MODIFIED="1474242547068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
@@ -50,8 +50,8 @@
           <file leaf-file-name="easyfinance.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/easyfinance.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="871">
-                  <caret line="227" column="29" selection-start-line="227" selection-start-column="29" selection-end-line="227" selection-end-column="29" />
+                <state relative-caret-position="421">
+                  <caret line="215" column="27" selection-start-line="215" selection-start-column="27" selection-end-line="215" selection-end-column="27" />
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
                   </folding>
@@ -178,7 +178,7 @@
           <file leaf-file-name="repository.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/database/repository.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="597">
+                <state relative-caret-position="417">
                   <caret line="121" column="12" selection-start-line="121" selection-start-column="12" selection-end-line="121" selection-end-column="12" />
                   <folding>
                     <element signature="e#0#36#0" expanded="true" />
@@ -200,8 +200,8 @@
           <file leaf-file-name="responses.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/responses.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="615">
-                  <caret line="223" column="18" selection-start-line="223" selection-start-column="18" selection-end-line="223" selection-end-column="18" />
+                <state relative-caret-position="129">
+                  <caret line="203" column="29" selection-start-line="203" selection-start-column="13" selection-end-line="203" selection-end-column="29" />
                   <folding>
                     <element signature="e#0#22#0" expanded="true" />
                   </folding>
@@ -1223,7 +1223,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/repository.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
+        <state relative-caret-position="417">
           <caret line="121" column="12" selection-start-line="121" selection-start-column="12" selection-end-line="121" selection-end-column="12" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
@@ -1233,8 +1233,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/responses.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="223" column="18" selection-start-line="223" selection-start-column="18" selection-end-line="223" selection-end-column="18" />
+        <state relative-caret-position="129">
+          <caret line="203" column="29" selection-start-line="203" selection-start-column="13" selection-end-line="203" selection-end-column="29" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
@@ -1243,8 +1243,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/easyfinance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="871">
-          <caret line="227" column="29" selection-start-line="227" selection-start-column="29" selection-end-line="227" selection-end-column="29" />
+        <state relative-caret-position="421">
+          <caret line="215" column="27" selection-start-line="215" selection-start-column="27" selection-end-line="215" selection-end-column="27" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
