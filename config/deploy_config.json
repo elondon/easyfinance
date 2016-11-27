@@ -4,21 +4,39 @@
 	"remote_app_folder": "/home/deploy/easyfinance-api",
 	"remote_server": "192.34.62.104",
 	"remote_deploy_user": "elondon",
+    "remote_deploy_password": "tgfyhn8eric",
 	"app_requirements": [{
-		"name": "flask",
-		"config": "config"
+		"name": "Postgres",
+		"db_user": "easyfinance",
+        "db_password": "we1come",
+        "create_db": "easyfinance"
 	}, {
-		"name": "postgres",
-		"config": "config"
-	}, {
-		"name": "nginx",
-		"local_config_folder": "/Users/elondon/Documents/EasyFinance/nginx_config",
+		"name": "Nginx",
+		"local_config_folder": "/Users/elondon/Documents/EasyFinance/config/nginx_config",
 		"remote_config_folder": "/etc/nginx/sites-enabled",
-		"local_sslcert_folder": "/Users/myUser/Documents/EasyFinance/ssl_certs",
-		"remote_supervisor_folder": "/etc/supervisor/conf.d"
+		"local_ssl_crt": "/Users/elondon/Documents/EasyFinance/certs/easyfinance.crt",
+		"local_ssl_key": "/Users/elondon/Documents/EasyFinance/certs/easyfinance.key"
 	}, {
-		"name": "supervisor",
-		"local_config_folder": "/Users/elondon/Documents/EasyFinance/supervisor_config",
-		"remote_config_folder": "/etc/supervisor/conf.d"
-	}]
+		"name": "FlaskApp",
+        "app_name": "easyfinance-api",
+		"local_folder": "/Users/elondon/Documents/EasyFinance",
+		"remote_folder": "/home/easyfinance-api",
+		"virtual_env": "/home/easyfinance-api/.venv/bin/",
+        "remote_log_folder": "/home/easyfinance-api/logs",
+		"remote_system_user": "easyfinance-api",
+		"use_alembic": "True",
+		"alembic_deploy_script": "/home/easyfinance-api/deploy_alembic.sh",
+        "deploy_files": [
+          "alembic.ini",
+          "requirements.txt",
+          "deploy_alembic.sh"
+        ],
+        "deploy_folders": [
+          "app",
+          "alembic"
+        ]
+	}, {
+        "name": "Supervisor",
+        "local_config_file": "/Users/elondon/Documents/EasyFinance/config/supervisor_config/easyfinance.conf"
+    }]
 }

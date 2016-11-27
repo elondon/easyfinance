@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 db = SQLAlchemy()
-some_engine = create_engine('postgresql://svceasyfinance:welcome@localhost/easyfinance')
+some_engine = create_engine('postgresql://easyfinance:we1come@localhost/easyfinance')
 session_maker = sessionmaker(some_engine)
 session = session_maker()
 
@@ -13,6 +13,6 @@ def init_db(app):
     global some_engine
     global session_maker
     global session
-    some_engine = create_engine('postgresql://svceasyfinance:welcome@localhost/easyfinance')
+    some_engine = create_engine('postgresql://easyfinance:we1come@localhost/easyfinance')
     session_maker = sessionmaker(some_engine)
     session = session_maker()
