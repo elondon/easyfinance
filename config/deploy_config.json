@@ -38,5 +38,10 @@
 	}, {
         "name": "Supervisor",
         "local_config_file": "/Users/elondon/Documents/EasyFinance/config/supervisor_config/easyfinance.conf"
+    }, {
+        "name": "ReactApp",
+        "local_dist_folder": "/Users/elondon/Documents/easyfinance-client/dist",
+        "remote_deploy_folder": "/home/easyfinance-react"
+
     }]
 }
