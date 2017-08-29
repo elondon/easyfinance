@@ -1,4 +1,4 @@
 # easyfinance
-MVP / Prototype for providing tools to make financial modeling easy. REST with token auth.
+Server side for MVP / Prototype of EasyFinance. Tools to make financial modeling easy. REST with token auth.
 
 Python / Flask / Alembic / Postgres
